@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-welcome to coc git workshop
-=======
-welcome to coc workshop.
->>>>>>> b885c120ac48fa9e91a267d6a7373191fb0a424a
+nothing 
