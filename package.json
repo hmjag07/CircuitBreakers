@@ -1,0 +1,20 @@
+{
+  "name": "circuitbreakers",
+  "version": "1.0.0",
+  "description": "Welcome to the comprehensive Git and Pull Request tutorial for the Xplore project! This guide will walk you through the entire process of contributing to the project, from forking the repository to creating a pull request. We'll cover basic and advanced Git commands, error handling, and best practices.",
+  "homepage": "https://github.com/hmjag07/CircuitBreakers#readme",
+  "bugs": {
+    "url": "https://github.com/hmjag07/CircuitBreakers/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmjag07/CircuitBreakers.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
