@@ -23,7 +23,7 @@ try {
     }
 
     
-}
+
 
 //signup user
 const signupUser = async (req, res) => {
