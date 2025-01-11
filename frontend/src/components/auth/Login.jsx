@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+// import SignUp from './components/auth/Signup.jsx';
+import { Link } from 'react-router-dom'
 
 
 const Login = () => {
@@ -50,7 +52,8 @@ const Login = () => {
             Sign in
           </button>
           <p className="text-sm font-light text-[#3A3960]">
-            Don’t have an account yet? <a href="#" className="font-medium text-[#85A947] hover:underline">Sign up</a>
+            Don’t have an account yet? 
+            <Link to="/Signup" className="font-medium text-[#85A947] hover:underline">Sign up</Link>
           </p>
         </form>
       </div>
