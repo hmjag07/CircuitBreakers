@@ -88,7 +88,7 @@ function Signup() {
           {/*Login page link */}
           <p className="text-sm text-center">
             Already have an account?{' '}
-            <Link to="/Login" className="text-accent font-medium">
+            <Link to="/login" className="text-accent font-medium">
               Log in
             </Link>
           </p>

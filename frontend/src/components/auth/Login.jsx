@@ -56,7 +56,7 @@ const Login = () => {
           </button>
           <p className="text-sm font-light text-[#3A3960]">
             Don’t have an account yet? 
-            <Link to="/Signup" className="font-medium text-[#85A947] hover:underline">Sign up</Link>
+            <Link to="/signup" className="font-medium text-[#85A947] hover:underline">Sign up</Link>
           </p>
         </form>
       </div>
