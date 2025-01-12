@@ -141,3 +141,78 @@
 .custom-button{
   @apply w-full text-[#3A3960] border-[#4e813a] bg-[#BED754] hover:text-[#BED754] hover:bg-[#3A3960] focus:ring-4 focus:outline-none focus:ring-[#BED754] font-medium rounded-lg text-sm px-5 py-2.5 text-center
 }
+
+/* material ui stylings */
+
+/* Container styles */
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #BED754;
+  padding: 20px;
+}
+
+/* Card styles */
+.signup-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+/* Typography styles */
+.signup-header {
+  font-size: 48px;
+  font-weight: bold;
+  color: #3A3960;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.signup-subheader {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3A3960;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Input field styles */
+.signup-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+/* Button styles */
+.signup-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #85A947;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-button:hover {
+  background-color: #73ae35;
+}
+
+/* Link styles */
+.signup-link {
+  color: #85A947;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-top: 12px;
+}
