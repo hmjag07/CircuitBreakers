@@ -1,12 +1,39 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // import SignUp from './components/auth/Signup.jsx';
 import { Link } from 'react-router-dom'
 import './../../index.css'
 
-const Login = () => {
-  useEffect(() => {
-    document.title = "All At Home - Login";
-  }, []);
+function Login(){
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error);
+      }
+
+      // save the token to localStorage or any other storage
+      localStorage.setItem('authToken', data.token);
+
+      alert('Login successful!');
+      navigate('/Home'); 
+    } catch (error) {
+      alert(`Login failed: ${error.message}`);
+    }
+  };
 
 
   return (
@@ -21,7 +48,9 @@ const Login = () => {
         <h2 className="text-2xl font-semibold text-center mb-6 text-[#3A3960]">
           Sign in to your account
         </h2>
-        <form className="space-y-4" action="#">
+
+        <form className="space-y-4"
+        onSubmit={handleLogin}>
           <div>
             <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#3A3960]">Your email</label>
             <input 
@@ -31,6 +60,7 @@ const Login = () => {
               className="bg-[#E8ECD7] border border-[#3A3960] text-[#3A3960] rounded-lg focus:ring-[#85A947] focus:border-[#85A947] block w-full p-2.5" 
               placeholder="xyz@gmail.com" 
               required 
+              onChange={(e)=> setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -42,6 +72,8 @@ const Login = () => {
               placeholder="••••••••" 
               className="custom-input" 
               required 
+              onChange={(e)=> setPassword(e.target.value)}
+
             />
           </div>
           {/* <div className="flex items-center justify-between">
@@ -58,7 +90,7 @@ const Login = () => {
             Don’t have an account yet? 
             <Link to="/signup" className="font-medium text-[#85A947] hover:underline">Sign up</Link>
           </p>
-        </form>
+        </form >
       </div>
     </section>
   );

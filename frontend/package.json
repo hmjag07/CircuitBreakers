@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@babel/code-frame": "^7.26.2",
     "@emotion/react": "^11.14.0",
@@ -9,6 +10,7 @@
     "@mui/material": "^6.3.1",
     "@mui/styled-engine-sc": "^6.3.1",
     "@tailwindcss/typography": "^0.5.15",
+    "axios": "^1.7.9",
     "cors": "^2.8.5",
     "cra-template": "1.2.0",
     "daisyui": "^4.12.23",
