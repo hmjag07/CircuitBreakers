@@ -6,11 +6,41 @@ function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // To redirect after successful signup
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, password);
+
+    // form validation
+    if (!name || !email || !password) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    try {
+      
+      const response = await fetch('http://localhost:3001/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password }), 
+      });
+
+      const data = await response.json(); 
+
+      if (!response.ok) {
+        throw new Error(data.error); 
+      }
+
+      
+      localStorage.setItem('authToken', data.token);
+
+      alert('Signup successful!');
+      navigate('/Home'); 
+    } catch (error) {
+      alert(`Signup failed: ${error.message}`);
+    }
   };
+
 
   return (
     <section className=" bg-[#BED754] min-h-screen flex flex-col items-center justify-center">

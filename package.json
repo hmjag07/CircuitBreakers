@@ -5,7 +5,6 @@
   "homepage": "https://github.com/hmjag07/CircuitBreakers#readme",
   "bugs": {
     "url": "https://github.com/hmjag07/CircuitBreakers/issues"
-    
   },
   "repository": {
     "type": "git",
@@ -18,12 +17,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-     "start": "cross-env PORT=3000 react-scripts start ",
+    "start": "cross-env PORT=3000 react-scripts start ",
     "server": "cd backend && nodemon ./index.js",
-    "client": "cd frontend && set PORT=3000 && npm start" 
+    "client": "cd frontend && set PORT=3000 && npm start"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
     "jsonwebtoken": "^9.0.2",
     "validator": "^13.12.0"
   },

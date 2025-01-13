@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import './../../index.css'
 
-function Login(){
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -13,23 +13,24 @@ function Login(){
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/login', {
+      const response = await fetch('http://localhost:3001/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error);
+        const data = await response.json(); 
+        throw new Error(data.error || 'Something went wrong');
       }
 
-      // save the token to localStorage or any other storage
+      const data = await response.json(); 
+
+      
       localStorage.setItem('authToken', data.token);
 
       alert('Login successful!');
-      navigate('/Home'); 
+      navigate('/Home'); //to Home page
     } catch (error) {
       alert(`Login failed: ${error.message}`);
     }
