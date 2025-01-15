@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useNavigate } from 'react';
 import './../../index.css'
 
 function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // To redirect after successful signup
+  // const navigate = useNavigate(); 
+  // to redirect after successful signup
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ function Signup() {
       localStorage.setItem('authToken', data.token);
 
       alert('Signup successful!');
-      navigate('/Home'); 
+       
     } catch (error) {
       alert(`Signup failed: ${error.message}`);
     }
