@@ -30,6 +30,7 @@
   }
 }
 
+
 /* Buttons */
 [data-theme="mytheme"] .btn-primary {
   border: var(--border-btn) solid #a991f7;
@@ -70,7 +71,12 @@
   background-color: var(--primary);
   color: #ffffff;
 }
-
+[data-theme="mytheme"]{
+  --info: #3de1fba1;
+  --success: #53e275ac;
+  --warning: #ffa50a6a;
+  --error: #d209099b;
+}
 /* Alerts */
 [data-theme="mytheme"] .alert {
   border-radius: var(--rounded-box);
@@ -78,20 +84,21 @@
 }
 [data-theme="mytheme"] .alert-info {
   background-color: var(--info);
-  color: #ffffff;
+  color: #3A3960;;
 }
 [data-theme="mytheme"] .alert-success {
   background-color: var(--success);
-  color: #ffffff;
+  color: #3A3960;
 }
 [data-theme="mytheme"] .alert-warning {
   background-color: var(--warning);
-  color: #ffffff;
+  color: #3A3960;
 }
 [data-theme="mytheme"] .alert-error {
   background-color: var(--error);
-  color: #ffffff;
+  color: #3A3960;
 }
+
 
 /* Form Elements */
 [data-theme="mytheme"] input, 

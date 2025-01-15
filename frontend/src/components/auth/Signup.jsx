@@ -1,26 +1,29 @@
-import { Link } from 'react-router-dom';
-import { useState, useNavigate } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState} from 'react';
 import './../../index.css'
-
+import Error from './Error';
 function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const navigate = useNavigate(); 
-  // to redirect after successful signup
+  const navigate = useNavigate(); 
 
+  const [error, setError]= useState('');
+  const [severity, setSeverity]= useState('error');
+
+  // to redirect after successful signup
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // form validation
     if (!name || !email || !password) {
-      alert('Please fill in all fields');
+      setError('Please fill in all fields'); 
+      setSeverity('warning');
       return;
     }
 
-    try {
-      
-      const response = await fetch('http://localhost:3001/signup', {
+  
+      const response = await fetch('http://localhost:3001/api/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }), 
@@ -29,18 +32,17 @@ function Signup() {
       const data = await response.json(); 
 
       if (!response.ok) {
-        throw new Error(data.error); 
+        setError(`Signup failed: ${data.error}`);
+        setSeverity('error');
       }
 
-      
       localStorage.setItem('authToken', data.token);
 
-      alert('Signup successful!');
-       
-    } catch (error) {
-      alert(`Signup failed: ${error.message}`);
-    }
-  };
+      if (response.ok)
+        {
+          setError('Sign Up successful!'); setSeverity('success');
+      navigate('/login');
+    }};
 
 
   return (
@@ -56,8 +58,15 @@ function Signup() {
           Create your account
         </h2>
 
+{/* starting the form */}
         <form className="space-y-4" onSubmit={handleSubmit}>
-          {/* Name */}
+
+{/* conditional error */}
+          <Error error={error}
+          severity={severity}
+          setError={setError}/>
+          
+{/* Name */}
           <div className="form-control">
             <label htmlFor="name" className="block mb-2 text-sm font-medium text-[#3A3960]">
               Your Name
@@ -70,11 +79,10 @@ function Signup() {
               className="custom-input"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
             />
           </div>
 
-          {/* Email */}
+{/* Email */}
           <div className="form-control">
             <label htmlFor="email" className="label">
               <span className="label-text text-neutral">Your email</span>
@@ -87,11 +95,11 @@ function Signup() {
               className="custom-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
+
             />
           </div>
 
-          {/* Password */}
+{/* Password */}
           <div className="form-control">
             <label htmlFor="password" className="label">
               <span className="label-text text-neutral">Password</span>
@@ -104,11 +112,11 @@ function Signup() {
               className="custom-input"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
+
             />
           </div>
 
-          {/* sign up button */}
+{/* sign up button */}
           <button
             type="submit"
             className="custom-button"
@@ -123,7 +131,10 @@ function Signup() {
               Log in
             </Link>
           </p>
+
+          
         </form>
+        
       </div>
     </section>
   );
