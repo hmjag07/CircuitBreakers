@@ -7,16 +7,16 @@ import ChooseUser from './components/shared/Landing.jsx';
 import ResiHome from './components/resident/ResiHome.jsx';
 import ProfHome from './components/prof/ProfHome.jsx';
 import Missing from './components/shared/Missing.jsx';
-
+import Home from './components/shared/Home.jsx'
 import { Routes, Route } from 'react-router-dom';
 import './index.css'
-import Landing from './components/shared/Landing.jsx';
+// import Landing from './components/shared/Landing.jsx';
 function App() {
   return (
     <>
     <div className="App">
       <Routes>
-        <Route path="/" element={<Landing/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup />} />

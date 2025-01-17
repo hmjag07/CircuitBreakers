@@ -17,7 +17,7 @@ function Signup() {
 
     // form validation
     if (!name || !email || !password) {
-      setError('Please fill in all fields'); 
+      setError('Please fill in all fields !'); 
       setSeverity('warning');
       return;
     }
@@ -119,7 +119,7 @@ function Signup() {
 {/* sign up button */}
           <button
             type="submit"
-            className="custom-button"
+            className="custom-button !w-full"
           >
             Sign up
           </button>
