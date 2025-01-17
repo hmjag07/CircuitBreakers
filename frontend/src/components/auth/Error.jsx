@@ -13,7 +13,6 @@ const Error = ({setError, severity, error}) => {
           className= {`alert-${severity}`}
           severity={severity}
           onClose={() => setError('')}>
-
           {error}
           </Alert>)}
 
