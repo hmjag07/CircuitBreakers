@@ -6,11 +6,14 @@ import {Routes, Route } from 'react-router-dom';
 import './index.css';
 import Home from './components/shared/Home.js';
 import About from './components/shared/About.js';
-
+import Signup from './components/auth/Signup.jsx';
  import Homee from './components/prof/Homee.js';
  import Request from './components/prof/Request.js';
 import Appoint from './components/prof/Appoint.js';
 import Editrequest from './components/prof/Editrequest.js';
+import Missing from './components/shared/Missing.jsx';
+import ResiHome from './components/resident/ResiHome.jsx'
+import ProfHome from './components/prof/ProfHome.jsx';
 
  function App() {
   return (
@@ -23,24 +26,25 @@ import Editrequest from './components/prof/Editrequest.js';
       
     <div className="App">
       <Routes>
+        {/* <Route path="/" element={<Landing/>}/> */}
+        {/* <Route path="/about" element={<About/>}/> */}
         <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/user" element= {<ChooseUser/>}/>
+        <Route path="/resi/home" element={<ResiHome/>}/>
+        <Route path="/prof/home" element={<ProfHome/>}/>
         <Route path="/landing" element={<Home/>}/>
+        <Route path="*" element={<Missing/>} />
         <Route path="/about" element={<About/>}/>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/homeproff" element={<Homee />} />
         <Route path="/request" element={<Request />} />
         <Route path="/appointments" element={<Appoint />} />
         <Route path="/editrequest" element={<Editrequest/>} />
-        {/* <Route path="/navbar" element={<Navbar/>} /> */}
       </Routes>
-      {/* <BrowserRouter> */}
-      {/* <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/about" element={<About/>}/>
-
-      </Routes>
-      </BrowserRouter> */}
-    </div></>
+      
+    </div>
+    </>
   );
 }
 

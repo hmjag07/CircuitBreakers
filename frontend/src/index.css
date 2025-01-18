@@ -30,6 +30,7 @@
   }
 }
 
+
 /* Buttons */
 [data-theme="mytheme"] .btn-primary {
   border: var(--border-btn) solid #a991f7;
@@ -70,7 +71,14 @@
   background-color: var(--primary);
   color: #ffffff;
 }
+[data-theme="mytheme"]{
+  --info: #3de1fba1;
+  --success: #53e275ac;
+  --warning: #ffa50a6a;
+  --error: #d209099b;
+  --neutral: #e8fe87;
 
+}
 /* Alerts */
 [data-theme="mytheme"] .alert {
   border-radius: var(--rounded-box);
@@ -78,20 +86,21 @@
 }
 [data-theme="mytheme"] .alert-info {
   background-color: var(--info);
-  color: #ffffff;
+  color: #3A3960;;
 }
 [data-theme="mytheme"] .alert-success {
   background-color: var(--success);
-  color: #ffffff;
+  color: #3A3960;
 }
 [data-theme="mytheme"] .alert-warning {
   background-color: var(--warning);
-  color: #ffffff;
+  color: #3A3960;
 }
 [data-theme="mytheme"] .alert-error {
   background-color: var(--error);
-  color: #ffffff;
+  color: #3A3960;
 }
+
 
 /* Form Elements */
 [data-theme="mytheme"] input, 
@@ -139,7 +148,7 @@
 }
 
 .custom-button{
-  @apply w-full text-[#3A3960] border-[#4e813a] bg-[#BED754] hover:text-[#BED754] hover:bg-[#3A3960] focus:ring-4 focus:outline-none focus:ring-[#BED754] font-medium rounded-lg text-sm px-5 py-2.5 text-center
+  @apply w-36 text-[#3A3960] border-[#4e813a] bg-[#BED754] hover:text-[#BED754] hover:bg-[#3A3960] focus:ring-4 focus:outline-none focus:ring-[#BED754] font-medium rounded-lg text-sm px-5 py-2.5 text-center
 }
 
 /* material ui stylings */
