@@ -10,10 +10,11 @@ import Signup from './components/auth/Signup.jsx';
  import Homee from './components/prof/Homee.js';
  import Request from './components/prof/Request.js';
 import Appoint from './components/prof/Appoint.js';
-import Editrequest from './components/prof/Editrequest.js';
+
 import Missing from './components/shared/Missing.jsx';
 import ResiHome from './components/resident/ResiHome.jsx'
 // import ProfHome from './components/prof/ProfHome.jsx';
+import Editrequest from './components/prof/Editrequest.js';
 
  function App() {
   return (
@@ -23,6 +24,7 @@ import ResiHome from './components/resident/ResiHome.jsx'
     {/* <Request/> */}
       {/* <Navbar />
       <Homee/> */}
+    
       
     <div className="App">
       <Routes>
