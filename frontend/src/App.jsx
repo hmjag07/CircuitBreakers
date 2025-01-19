@@ -13,7 +13,7 @@ import Appoint from './components/prof/Appoint.js';
 import Editrequest from './components/prof/Editrequest.js';
 import Missing from './components/shared/Missing.jsx';
 import ResiHome from './components/resident/ResiHome.jsx'
-import ProfHome from './components/prof/ProfHome.jsx';
+// import ProfHome from './components/prof/ProfHome.jsx';
 
  function App() {
   return (
@@ -30,9 +30,9 @@ import ProfHome from './components/prof/ProfHome.jsx';
         {/* <Route path="/about" element={<About/>}/> */}
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup />} />
-        <Route path="/user" element= {<ChooseUser/>}/>
+        {/* <Route path="/user" element= {<ChooseUser/>}/> */}
         <Route path="/resi/home" element={<ResiHome/>}/>
-        <Route path="/prof/home" element={<ProfHome/>}/>
+        {/* <Route path="/prof/home" element={<ProfHome/>}/> */}
         <Route path="/landing" element={<Home/>}/>
         <Route path="*" element={<Missing/>} />
         <Route path="/about" element={<About/>}/>
