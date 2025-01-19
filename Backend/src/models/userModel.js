@@ -10,12 +10,25 @@ const userSchema = new Schema({
         type: String, 
         required: true
     },
-    email: {
+    email:{
         type: String,
         required: true,
         unique: true
     },
-    password: { 
+    phone:{
+        type:String,
+        required: true,
+        unique:true,
+    },
+    flat:{
+        type: Number,
+        required: true
+    },
+    wing:{
+        type: String,
+        required: true
+    },
+    password:{ 
         type: String,
         required: true,
     }
@@ -23,36 +36,34 @@ const userSchema = new Schema({
 
 
 //static signup method
-userSchema.statics.signup = async function(name, email, password) {
+userSchema.statics.signup = async function
+(name, email, password, flat, wing, phone) {
 
-    // checking if the name is only two words
     const nameRegex= /^[A-Za-z]+(\s[A-Za-z]+){1}$/;
-    if (!nameRegex.test(name)){
-        throw Error ('The Name must contain exactly TWO words!');
-    }
-    //validation
-    if (!name || !email || !password){
-        throw Error('All fields must be filled')
-    }
-    if (!validator.isEmail(email)){
-        throw Error('Email is not valid')
-    }
     const exists = await this.findOne({ email })
-
     if(exists){
         throw Error('Email already in use')
     }
+    
+    // checking if the name is only two words
+    if (!nameRegex.test(name)){
+        throw Error ('The Name must contain exactly TWO words!');
+    }
+    // validation
+    if (!(validator.isEmail(email))){
+        throw Error('Email is not valid')
+    } 
     
 
 const salt = await bcrypt.genSalt(10);
 const hash = await bcrypt.hash(password, salt);
 
 try{
-    const user =  await this.create({ name, email, password: hash })
+    const user =  await this.create({ name, phone, flat, wing, email, password: hash })
     return user;
     }
     catch(err){
-        throw new Error('there was an error creating user, please try again ');
+        throw Error('there was an error creating user, please try again ');
     }
 
 }

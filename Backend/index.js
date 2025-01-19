@@ -12,6 +12,7 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', userRoute)
 const PORT = process.env.PORT || 3001;

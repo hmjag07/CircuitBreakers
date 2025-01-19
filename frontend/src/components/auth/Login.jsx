@@ -3,15 +3,22 @@ import { useNavigate } from 'react-router-dom';
 // import SignUp from './components/auth/Signup.jsx';
 import { Link } from 'react-router-dom'
 import './../../index.css'
+import Error from './Error';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const [error, setError]= useState('');
+  const [severity, setSeverity]= useState('error');
+  
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    if(!email || !password){
+      setError('Please fill in all fields !');
+      setSeverity('warning');return;
+    }
     try {
       const response = await fetch('http://localhost:3001/api/login', {
         method: 'POST',
@@ -19,20 +26,21 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      if (!response.ok) {
-        const data = await response.json(); 
-        throw new Error(data.error || 'Something went wrong');
-      }
-
       const data = await response.json(); 
+
+      if (!response.ok) {
+        setError(data.error || 'Something went wrong');
+        setSeverity('error');
+        return;
+      }
 
       
       localStorage.setItem('authToken', data.token);
-
-      alert('Login successful!');
-      navigate('/Home'); //to Home page
+      setError('Login Successful!'); setSeverity('success');
+      navigate('/home'); //to Home page
     } catch (error) {
-      alert(`Login failed: ${error.message}`);
+      setError(`Login failed: ${error.message}`);
+      setSeverity('error');
     }
   };
 
@@ -52,6 +60,10 @@ function Login() {
 
         <form className="space-y-4"
         onSubmit={handleLogin}>
+          {/* conditional error */}
+          <Error error={error}
+          severity={severity}
+          setError={setError}/>
           <div>
             <label htmlFor="email" className="block mb-2 text-sm font-medium text-[#3A3960]">Your email</label>
             <input 
@@ -60,7 +72,7 @@ function Login() {
               id="email" 
               className="bg-[#E8ECD7] border border-[#3A3960] text-[#3A3960] rounded-lg focus:ring-[#85A947] focus:border-[#85A947] block w-full p-2.5" 
               placeholder="xyz@gmail.com" 
-              required 
+              
               onChange={(e)=> setEmail(e.target.value)}
             />
           </div>
@@ -72,7 +84,7 @@ function Login() {
               id="password" 
               placeholder="••••••••" 
               className="custom-input" 
-              required 
+              
               onChange={(e)=> setPassword(e.target.value)}
 
             />
@@ -81,9 +93,8 @@ function Login() {
             <a href="#" className="text-sm font-medium text-[#85A947] hover:underline">Forgot password?</a>
           </div> */}
           <button 
-          
             type="submit" 
-            className="custom-button"
+            className="custom-button !w-full"
           >
             Sign in
           </button>
