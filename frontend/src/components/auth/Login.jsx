@@ -26,19 +26,18 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
+      const data = await response.json(); 
+
       if (!response.ok) {
-        const data = await response.json(); 
         setError(data.error || 'Something went wrong');
         setSeverity('error');
+        return;
       }
-
-      const data = await response.json(); 
 
       
       localStorage.setItem('authToken', data.token);
-
       setError('Login Successful!'); setSeverity('success');
-      navigate('/Home'); //to Home page
+      navigate('/home'); //to Home page
     } catch (error) {
       setError(`Login failed: ${error.message}`);
       setSeverity('error');
