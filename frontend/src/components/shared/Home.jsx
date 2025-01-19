@@ -53,7 +53,7 @@ const Home = () => {
           </Link></button> 
 
         <button className="custom-button">
-          <Link to={'/prof/home'}>Proffesional
+          <Link to={'/homeproff'}>Proffesional
           </Link></button>
       </div>
     </div>

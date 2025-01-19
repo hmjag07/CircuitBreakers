@@ -1,8 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import bgi from './images/bggg.png';
+import bgi from './images/ishikaa.jpg';
 import Layoutt from './Layoutt';
 import Navbar from './Navbar';
+import ishikaa from './images/charac.jpg'
+
 
 const Home = () => {
   return (
@@ -19,6 +21,7 @@ const Home = () => {
            
            
           }}>
+      
             
     <h1>WELCOME TO ALL AT HOME</h1>
    <p className='homeContainer'>

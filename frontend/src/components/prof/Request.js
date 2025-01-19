@@ -7,12 +7,12 @@ const Request = () => {
     <Layoutt>
     <div className='requests'>
         <Navbar/>
-      <h1>REQUESTS</h1>
-      
-      <h2>Here are the requests made by customers</h2>
-    <h2>You can also edit the requests and send it back to the customer</h2>
+        <h2>Here,</h2>
+      <h1>FIND THE REQUESTS MADE BY THE CUSTOMERS</h1>
+     
+    <h2>  You can easily update customer requests and send your revisions directly to them. Ensure all changes meet customer expectations before submission. Your expertise makes a difference!</h2>
     <Link to="/editrequest">
-<button className='button'  style={{
+<button style={{
 
 width: '200px'  ,
 padding: '10px',

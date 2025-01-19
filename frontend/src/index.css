@@ -329,7 +329,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1px 2%;
- background-color: rgb(109,214,217,255)
+ /* background-color: rgb(109,214,217,255) */
+ background-color: rgb(144, 208, 238);
 }
 
 .navbar h1{
@@ -414,4 +415,10 @@ ul li{
  box-shadow: 0 2px 5px rgb(0 0 0 0.2) ;
 }
 
-
+.requests h1{
+text-align: left;
+justify-content: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-weight: bolder;
+font-size: 20px;
+}
