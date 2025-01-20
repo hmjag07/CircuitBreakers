@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import './../../index.css'
 import Error from './Error';
 
-function Login() {
+function ResiLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function Login() {
       setSeverity('warning');return;
     }
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
+      const response = await fetch('http://localhost:3001/api/prof/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -55,7 +55,7 @@ function Login() {
 
       <div className="w-full max-w-md bg-[#E8ECD7] rounded-lg shadow p-6 sm:p-8">
         <h2 className="text-2xl font-semibold text-center mb-6 text-[#3A3960]">
-          Sign in to your account
+          Sign in to your Professional account
         </h2>
 
         <form className="space-y-4"
@@ -100,7 +100,7 @@ function Login() {
           </button>
           <p className="text-sm font-light text-[#3A3960]">
             Don’t have an account yet? 
-            <Link to="/signup" className="font-medium text-[#85A947] hover:underline">Sign up</Link>
+            <Link to="/prof/signup" className="font-medium text-[#85A947] hover:underline">Sign up</Link>
           </p>
         </form >
       </div>
@@ -108,8 +108,4 @@ function Login() {
   );
 }
 
-export default Login;
-
-
-
-
+export default ResiLogin;

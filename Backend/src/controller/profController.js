@@ -9,7 +9,7 @@ const loginProf = async (req, res) => {
 
     try {
     const {email, password} = req.body
-        console.log("Received email:", email);
+        console.log("Received email for prof:", email);
 
         const user = await Proffesional.login(email, password);
 
@@ -28,10 +28,10 @@ const loginProf = async (req, res) => {
 
 //signup user
     const signupProf = async (req, res) => {
-        const {name, email, password} = req.body 
+        const {name, email, phone, profession, password} = req.body 
         
         try {
-            const user = await Proffesional.signup(name, email, password)
+            const user = await Proffesional.signup(name, email, phone, profession, password)
         // create a token
             const token = createToken(user._id)
                
@@ -39,6 +39,7 @@ const loginProf = async (req, res) => {
             } 
             catch(error){
             res.status(400).json({error: error.message})
+            console.error('Signup Error:', error.message);
         
         } 
     }

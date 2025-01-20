@@ -50,7 +50,7 @@ function ResiSignup() {
       if (response.ok)
         {
           setError('Sign Up successful!'); setSeverity('success');
-      navigate('/login');
+      navigate('/resi/login');
     }};
 
 
@@ -182,7 +182,7 @@ function ResiSignup() {
           {/*Login page link */}
           <p className="text-sm text-center">
             Already have an account?{' '}
-            <Link to="/login" className="text-accent font-medium">
+            <Link to="/resi/login" className="text-accent font-medium">
               Log in
             </Link>
           </p>
