@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import bgi from './images/ishikaa.jpg';
+import bgi from './images/bg.jpg';
 import Layoutt from './Layoutt';
 import Navbar from './Navbar';
-import ishikaa from './images/charac.jpg'
+// import ishikaa from './images/charac.jpg'
 
 
 const Home = () => {
@@ -32,13 +32,14 @@ const Home = () => {
 
 width: '200px',
 padding: '10px',
-backgroundColor: '#3A3960',
+backgroundColor: '#89CFF0',
 border: 'none',
 borderRadius: '15px',
-color: 'white',
-fontSize: '16px',
+color: 'black',
+fontSize: '17px',
 cursor: 'pointer',
-marginLeft: '350px',
+marginRight: '600px',
+fontWeight:'bold'
 
 
               }}>
