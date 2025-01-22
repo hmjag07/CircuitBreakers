@@ -30,16 +30,16 @@ const profSchema = new Schema({
     password: { 
         type: String,
         required: true,
-        unique: true
+
     }
 })
 
 
 //static signup method
-profSchema.statics.signup = async function(name, email, password, phone, profession) {
+profSchema.statics.signup = async function(name, email,  phone, profession, password) {
 
     //validation
-    if (!name || !email || !password || !phone || profession){
+    if (!name || !email || !password || !phone || !profession){
         throw Error('All fields must be filled')
     }
     // checking if the name is only two words
@@ -57,7 +57,7 @@ profSchema.statics.signup = async function(name, email, password, phone, profess
     }
     // check if phone exists
     const phn = await this.findOne({ phone })
-    if(exists){
+    if(phn){
         throw Error('Phone number already in use!')
     }
     
@@ -66,7 +66,11 @@ const salt = await bcrypt.genSalt(10);
 const hash = await bcrypt.hash(password, salt);
 
 try{
-    const user =  await this.create({ name, email, password: hash })
+    const user =  await this.create({ name, email, phone, profession, password: hash })
+    //      // debug
+//      console.log('New user created:')
+//      console.log('Email:', email)
+//      console.log('Generated hash:', hash)
     return user;
     }
     catch(err){

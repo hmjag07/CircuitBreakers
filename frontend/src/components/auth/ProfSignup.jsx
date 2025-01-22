@@ -52,7 +52,7 @@ function ProfSignup() {
       if (response.ok)
         {
           setError('Sign Up successful!'); setSeverity('success');
-      navigate('/login');
+      navigate('/prof/login');
     }};
 
 
@@ -131,14 +131,18 @@ function ProfSignup() {
 {/* profession  */}
                   <div className="form-control">
                   <label for="countries" className="label">Select an option</label>
-  <select id="profession" className="custom-input">
+  <select onChange={(e)=>{
+      setProfession(e.target.value);
+    }}
+    id="profession" className="custom-input">
     <option selected>Choose a profession</option>
     <option value="Plumber">Plumber</option>
     <option value="Electrician">Electrician</option>
     <option value="Carpenter">Carpenter</option>
     <option value="RO engineer">RO engineer</option>
+    
   </select>
-                  </div>
+</div>
 
 {/* Password */}
           <div className="form-control">
@@ -167,7 +171,7 @@ function ProfSignup() {
           {/*Login page link */}
           <p className="text-sm text-center">
             Already have an account?{' '}
-            <Link to="/login" className="text-accent font-medium">
+            <Link to="/prof/login" className="text-accent font-medium">
               Log in
             </Link>
           </p>
