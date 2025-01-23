@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./src/config/db');
 const bodyParser = require('body-parser')
 const userRoute = require('./src/routes/userRoute')
+const profRoute = require('./src/routes/profRoute')
 const app = express();
 
 dotenv.config();
@@ -20,3 +21,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, ()=>{
     console.log(`server running on : ${PORT}`);
 });
+
+app.use('/data', profRoute);

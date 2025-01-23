@@ -10,6 +10,10 @@ import ResiHome from './components/resident/ResiHome.jsx';
 import ProfHome from './components/prof/ProfHome.jsx';
 import Missing from './components/shared/Missing.jsx';
 import Home from './components/shared/Home.jsx'
+
+import ProfCards from './components/resident/ProfCards.jsx';
+import Notice from './components/resident/Notice.jsx'
+
 import { Routes, Route } from 'react-router-dom';
 import './index.css'
 // import Landing from './components/shared/Landing.jsx';
@@ -27,7 +31,8 @@ function App() {
         <Route path="/resi/home" element={<ResiHome/>}/>
         <Route path="/prof/home" element={<ProfHome/>}/>
         <Route path="/prof/signup" element={<ProfSignup/>}/>
-
+        <Route path="/data/professionals" element={<ProfCards/>}/>
+        <Route path="/resi/notices" element={<Notice/>}/>
 
         <Route path="*" element={<Missing/>} />
 
