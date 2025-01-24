@@ -14,11 +14,31 @@ const Nav = () => {
         <Link to="/home">Home</Link>
       </li>
       <li className="rounded-lg hover:bg-[#252446]">
+      <details>
+          <summary>Appointments</summary>
+          <ul className="bg-[#85A947] rounded-t-none p-2">
+          <li className="rounded-lg hover:bg-[#252446]">
+        <Link to="/about">Book Professional</Link>
+      </li>
+          <li className="rounded-lg hover:bg-[#252446]">
+        <Link to="/about">Manage Requests</Link>
+      </li>
+      <li className="rounded-lg hover:bg-[#252446]">
+        <Link to="/about">My Appointments</Link>
+      </li>
+      <li className="rounded-lg hover:bg-[#252446]">
+        <Link to="/about">Help</Link>
+      </li>
+          </ul>
+        </details>
+      </li>
+      <li className="rounded-lg hover:bg-[#252446]">
         <Link to="/about">Know More</Link>
       </li>
       <li className="rounded-lg hover:bg-[#252446]">
-        <Link to="/login">Login</Link>
+        <Link to="/home">Logout</Link>
       </li>
+      
     </ul>
   </div>
 </div>
