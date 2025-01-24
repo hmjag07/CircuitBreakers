@@ -53,4 +53,4 @@ fontWeight:'bold'
   );
 }
 
-export default Home;
+export default ProfHome;
