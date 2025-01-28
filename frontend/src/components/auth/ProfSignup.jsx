@@ -8,7 +8,7 @@ function ProfSignup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
-  // const [profession, setProfession] = useState('');
+  const [profession, setProfession] = useState('');
   
 //   alert/errors
   const [error, setError]= useState('');
@@ -19,11 +19,10 @@ function ProfSignup() {
   // To redirect after successful signup
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //missing proffesional showing error same on line 25 and 38
-    console.log({ name, email, phone,  password });
+    console.log({ name, email, phone, profession, password });
 
     // form validation
-    if (!name || !email || !password || !phone) {
+    if (!name || !email || !password || !profession || !phone) {
       setError('Please fill in all fields !'); 
       setSeverity('warning');
       return;
@@ -36,7 +35,7 @@ function ProfSignup() {
       const response = await fetch('http://localhost:3001/api/prof/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, email,password}), 
+        body: JSON.stringify({ name, phone, email, profession, password}), 
       });
 
       const data = await response.json(); 
