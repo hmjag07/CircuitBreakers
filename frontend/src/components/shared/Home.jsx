@@ -58,11 +58,18 @@ const [role, setRole]= useState('resi');
           </button>
         </Link>
 
-         <Link to={`/${role}/signup`}>
+         {/* <Link to={`/${role}/signup`}>
         <button className="custom-button">
           <Link to={'/resi/home'}>Resident
-          </Link></button> 
-
+          </button> 
+          </Link>
+               */}
+        <Link to={'/resi/home'}>
+  <button className="custom-button">
+    Resident
+  </button>
+</Link>
+ 
         <button className="custom-button">
           <Link to={'/homeproff'}>Proffesional
           </Link></button>
