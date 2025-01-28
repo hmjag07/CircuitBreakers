@@ -5,7 +5,7 @@ import Layoutt from './Layoutt';
 const Navbar = () => {
   return (
     <Layoutt>
-    <div className='navbar'>
+    <div className='navbarP'>
       <h1> <IoHome/>  ALL AT HOME </h1>
     <ul>
      
