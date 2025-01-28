@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import './../../index.css'
 import Error from './Error';
 
+import Button from '@mui/material/Button';
+
 function ResiLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +15,7 @@ function ResiLogin() {
   const [error, setError]= useState('');
   const [severity, setSeverity]= useState('error');
   
+  const [loged, setLoged]= useState(false)
   const handleLogin = async (e) => {
     e.preventDefault();
     if(!email || !password){
@@ -36,8 +39,8 @@ function ResiLogin() {
 
       
       localStorage.setItem('authToken', data.token);
-      setError('Login Successful!'); setSeverity('success');
-      navigate('/home'); //to Home page
+      setError('Login Successful!'); setSeverity('success'); setLoged(true);
+      // navigate('/home'); //to Home page
     } catch (error) {
       setError(`Login failed: ${error.message}`);
       setSeverity('error');
@@ -53,7 +56,7 @@ function ResiLogin() {
         All At Home
       </h3>
 
-      <div className="w-full max-w-md bg-[#E8ECD7] rounded-lg shadow p-6 sm:p-8">
+      {!loged ?<div className="w-full max-w-md bg-[#E8ECD7] rounded-lg shadow p-6 sm:p-8">
         <h2 className="text-2xl font-semibold text-center mb-6 text-[#3A3960]">
           Sign in to your account
         </h2>
@@ -104,6 +107,20 @@ function ResiLogin() {
           </p>
         </form >
       </div>
+      :
+       <div><Button
+      variant="contained"
+      sx={{
+        backgroundColor: '#85A947', // Custom background color
+        color: '#ffffff', // Custom text color
+        '&:hover': {
+          backgroundColor: '#6c8c3b', // Custom hover color
+        },
+      }}
+    >
+      <Link to={'/resi/home'}>Home</Link>
+    </Button></div>
+    }
     </section>
   );
 }

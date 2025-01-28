@@ -34,6 +34,9 @@ const profSchema = new Schema({
     }
 })
 
+profSchema.statics.fetchAll = async function () {
+    return await this.find();
+  };
 
 //static signup method
 profSchema.statics.signup = async function(name, email,  phone, profession, password) {
@@ -98,4 +101,5 @@ profSchema.statics.login = async function(email, password){
 return user;
 };
 
-module.exports = mongoose.model('Proffesional', profSchema)
+
+module.exports = mongoose.model('Professional', profSchema)

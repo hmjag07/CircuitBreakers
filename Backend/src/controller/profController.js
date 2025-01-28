@@ -1,8 +1,19 @@
-const Proffesional = require('../models/profModel');
+const Professional = require('../models/profModel');
 const jwt = require('jsonwebtoken');
 
 const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, { expiresIn: '3d'})
+}
+
+// fetch
+const data = async function(req,res){
+    try{
+        const profs = await Professional.fetchAll();
+        console.log("fetched:", profs);
+        res.json(profs);
+    }catch(err){
+        res.status(500).json({err: "failed to fetch data"});
+    }
 }
 // login user
 const loginProf = async (req, res) => {
@@ -11,7 +22,7 @@ const loginProf = async (req, res) => {
     const {email, password} = req.body
         console.log("Received email for prof:", email);
 
-        const user = await Proffesional.login(email, password);
+        const user = await Professional.login(email, password);
 
         // create a token
         const token = createToken(user._id)
@@ -31,7 +42,7 @@ const loginProf = async (req, res) => {
         const {name, email, phone, profession, password} = req.body 
         
         try {
-            const user = await Proffesional.signup(name, email, phone, profession, password)
+            const user = await Professional.signup(name, email, phone, profession, password)
         // create a token
             const token = createToken(user._id)
                
@@ -44,4 +55,4 @@ const loginProf = async (req, res) => {
         } 
     }
 
-module.exports = { signupProf, loginProf }
+module.exports = { signupProf, loginProf, data }
