@@ -5,7 +5,7 @@ import './index.css'
 
 import Appoint from './components/prof/Appoint.js';
 import About from './components/shared/About.js';
-import Request from './components/prof/Request.js'
+import Request from './components/prof/Request.jsx'
 import Editrequest from './components/prof/Editrequest.js';
 import Home from './components/shared/Home.jsx'
 
@@ -22,7 +22,7 @@ import ProfLogin from './components/auth/ProfLogin.jsx'
 import ResiSignup from './components/auth/ResiSignup.jsx';
 import ProfSignup from './components/auth/ProfSignup.jsx';
 
-// import ProfHome from './components/prof/ProfHome.jsx';
+import ProfHome from './components/prof/ProfHome.jsx';
 
 function App() {
   return (
@@ -42,16 +42,16 @@ function App() {
         <Route path="/prof/signup" element={<ProfSignup/>}/>
 
         <Route path="/resi/home" element={<ResiHome/>}/>
-        {/* <Route path="/prof/home" element={<ProfHome/>}/> */}
+        <Route path="/prof/home" element={<ProfHome/>}/>
 
 
         <Route path="/resi/login" element={<ResiLogin/>}/>
         <Route path="/prof/login" element={<ProfLogin/>}/>
 
 
-        <Route path="/request" element={<Request />} />
-        <Route path="/appointments" element={<Appoint />} />
-        <Route path="/editrequest" element={<Editrequest/>} />
+        <Route path="/prof/request" element={<Request />} />
+        <Route path="/prof/appointments" element={<Appoint />} />
+        <Route path="/prof/editrequest" element={<Editrequest/>} />
         
         <Route path="/data/professionals" element={<ProfCards/>}/>
         <Route path="/resi/notices" element={<Notice/>}/>

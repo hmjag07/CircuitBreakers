@@ -1,12 +1,12 @@
 import React from 'react';
-import Layoutt from './Layoutt';
+import ProfLayout from './ProfLayout';
 const Appoint = () => {
   return (
-    <Layoutt>
+    <ProfLayout>
     <div>
       <h1>APPOINTMENTS</h1>
     </div>
-    </Layoutt>
+    </ProfLayout>
 
   );
 }

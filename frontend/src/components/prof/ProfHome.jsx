@@ -1,15 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import bgi from './images/bg.jpg';
-import Layoutt from './Layoutt';
+import ProfLayout from './ProfLayout';
 import Navbar from './Navbar';
 // import ishikaa from './images/charac.jpg'
 
 
-const Home = () => {
+const ProfHome = () => {
   return (
     
-    <Layoutt>
+    <ProfLayout>
       <Navbar/>
     <div className='home' style={{ 
             backgroundImage: `url(${bgi})`,
@@ -49,7 +49,7 @@ fontWeight:'bold'
 </Link>
     </div>
 
-</Layoutt>
+</ProfLayout>
   );
 }
 

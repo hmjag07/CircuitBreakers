@@ -1,10 +1,10 @@
 import React from 'react';
-import Layoutt from './Layoutt';
+import ProfLayout from './ProfLayout';
 import Navbar from './Navbar';
 import {Link} from 'react-router-dom';
 const Request = () => {
   return (
-    <Layoutt>
+    <ProfLayout>
     <div className='requests'>
         <Navbar/>
         <h2>Here,</h2>
@@ -31,7 +31,7 @@ marginLeft: '350px',
 
 </Link>
     </div>  
-    </Layoutt>
+    </ProfLayout>
   );
 }
 

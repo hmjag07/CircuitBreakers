@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import { IoHome } from 'react-icons/io5';
-import Layoutt from './Layoutt';
+import ProfLayout from './ProfLayout';
 const Navbar = () => {
   return (
-    <Layoutt>
+    <ProfLayout>
     <div className='navbarP'>
       <h1> <IoHome/>  ALL AT HOME </h1>
     <ul>
@@ -71,7 +71,7 @@ marginRight: '20px',
        <h1>WELCOME TO ALL AT HOME</h1>
      </div> */}
     </div>
-    </Layoutt>
+    </ProfLayout>
   );
 }
 
