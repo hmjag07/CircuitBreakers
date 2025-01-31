@@ -37,7 +37,7 @@ function ResiLogin() {
       
       localStorage.setItem('authToken', data.token);
       setError('Login Successful!'); setSeverity('success');
-      navigate('/home'); //to Home page
+      navigate('/prof/home'); //to Home page
     } catch (error) {
       setError(`Login failed: ${error.message}`);
       setSeverity('error');

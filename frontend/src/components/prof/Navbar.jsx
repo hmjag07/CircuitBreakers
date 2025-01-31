@@ -9,7 +9,7 @@ const Navbar = () => {
       <h1> <IoHome/>  ALL AT HOME </h1>
     <ul>
      
-      <Link to="/appoint">
+      <Link to="/prof/appointments">
 <li style={{
 
 width: '150px',
@@ -29,7 +29,7 @@ marginRight: '20px',
 </Link>
        
       <li>
-        <Link to="/request">
+        <Link to="/prof/request">
         <button style={{
                          
                          width: '150px',
@@ -48,7 +48,7 @@ marginRight: '20px',
         </Link>
       </li>
       <li>
-        <Link to="/logoutt">
+        <Link to="/prof/logout">
         <button style={{
                          
                          width: '150px',

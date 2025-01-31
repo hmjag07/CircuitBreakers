@@ -19,7 +19,7 @@ const Nav = () => {
               <summary className="cursor-pointer">Appointments</summary>
               <ul className="dropdown-content menu bg-[#85A947] rounded-box p-2 mt-2 w-48 text-sm">
                 <li className="rounded-lg hover:bg-[#252446]">
-                  <Link to="/about">Book Professional</Link>
+                  <Link to="/resi/book">Book Professional</Link>
                 </li>
                 <li className="rounded-lg hover:bg-[#252446]">
                   <Link to="/about">Manage Requests</Link>
@@ -37,7 +37,7 @@ const Nav = () => {
             <Link to="/about">Know More</Link>
           </li>
           <li className="rounded-lg hover:bg-[#252446]">
-            <Link to="/home">Logout</Link>
+            <Link to="/resi/home">Logout</Link>
           </li>
         </ul>
       </div>

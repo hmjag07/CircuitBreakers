@@ -11,7 +11,7 @@ const Request = () => {
       <h1>FIND THE REQUESTS MADE BY THE CUSTOMERS</h1>
      
     <h2>  You can easily update customer requests and send your revisions directly to them. Ensure all changes meet customer expectations before submission. Your expertise makes a difference!</h2>
-    <Link to="/editrequest">
+    <Link to="/prof/request/editrequest">
 <button style={{
 
 width: '200px'  ,
