@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import SignUp from './components/auth/Signup.jsx';
 import { Link } from 'react-router-dom'
@@ -6,8 +6,12 @@ import './../../index.css'
 import Error from './Error';
 
 import Button from '@mui/material/Button';
+import { AuthContext } from '../../context/AuthContext';
 
 function ResiLogin() {
+  const { dispatch }= useContext(AuthContext);
+  const [username, setUsername] = useState('');
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -16,31 +20,46 @@ function ResiLogin() {
   const [severity, setSeverity]= useState('error');
   
   const [loged, setLoged]= useState(false)
+  const { user } = useContext(AuthContext);
+
+
   const handleLogin = async (e) => {
+
     e.preventDefault();
     if(!email || !password){
       setError('Please fill in all fields !');
       setSeverity('warning');return;
     }
     try {
+      const token = localStorage.getItem('authToken');
       const response = await fetch('http://localhost:3001/api/resi/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+         },
         body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json(); 
-
+      console.log("response from server", data);
+      
       if (!response.ok) {
         setError(data.error || 'Something went wrong');
         setSeverity('error');
         return;
       }
 
+      localStorage.setItem("user", JSON.stringify(data.user));
+      console.log("Stored user in localStorage:", JSON.parse(localStorage.getItem('user')));
       
       localStorage.setItem('authToken', data.token);
+
+      console.log(data.user, "from resilogin");
+
+      dispatch({ type: "LOGIN", payload: data.user})
+
       setError('Login Successful!'); setSeverity('success'); setLoged(true);
-      // navigate('/home'); //to Home page
+      navigate('/resi/home'); //to Home page
     } catch (error) {
       setError(`Login failed: ${error.message}`);
       setSeverity('error');

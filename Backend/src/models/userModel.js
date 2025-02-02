@@ -104,12 +104,13 @@ userSchema.statics.login = async function(email, password) {
         if (!match) {
             throw Error('Incorrect password')
         }
-        
+        console.log(user); // Check if the user object has the correct structure
+
         return user
     } catch (bcryptError) {
         // Log any bcrypt-specific errors
         console.error('Bcrypt error:', bcryptError)
-        throw Error('Something went wrong ! please try again')
+        throw Error('Incorrect password')
     }
 }
 module.exports = mongoose.model('User', userSchema);

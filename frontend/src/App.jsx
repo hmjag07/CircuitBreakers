@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
-import { Routes, Route } from 'react-router-dom';
-import './index.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {  AuthContextProvider } from './context/AuthContext.js';
 
 import Appoint from './components/prof/Appoint.js';
 import About from './components/shared/About.js';
@@ -28,14 +28,10 @@ import ProfHome from './components/prof/ProfHome.jsx';
 function App() {
   return (
     <>
-     
-     
-    {/* <Request/> */}
-      {/* <Navbar />
-      <Homee/> */}
-    
+    <AuthContextProvider>
       
     <div className="App">
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
@@ -59,14 +55,11 @@ function App() {
         <Route path="/data/professionals" element={<ProfCards/>}/>
         <Route path="/resi/notices" element={<Notice/>}/>
 
-
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
-
         <Route path="*" element={<Missing/>} />
       </Routes>
       
     </div>
+    </AuthContextProvider>
     </>
   );
 }
