@@ -27,7 +27,7 @@ app.use(helmet());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 
 app.listen(PORT, ()=>{
-    console.log(server running on : ${PORT});
+    console.log('server running on : ${PORT}');
 });
 
 app.get('/resi/home', authMiddleware, (req,res)=>{
