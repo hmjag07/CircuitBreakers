@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
-import { Routes, Route } from 'react-router-dom';
-import './index.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {  AuthContextProvider } from './context/AuthContext.js';
 
 import Appoint from './components/prof/Appoint.js';
 import About from './components/shared/About.js';
@@ -14,7 +14,9 @@ import Missing from './components/shared/Missing.jsx';
 
 
 import ProfCards from './components/resident/ProfCards.jsx';
-import Notice from './components/resident/Notice.jsx'
+import NoticeCards from './components/resident/Notice.jsx';
+import CreateNotice from './components/resident/CreateNotice.jsx';
+
 import ResiHome from './components/resident/ResiHome.jsx'
 
 import ResiLogin from './components/auth/ResiLogin.jsx' ;
@@ -29,14 +31,10 @@ import Services from './components/resident/Services.jsx';
 function App() {
   return (
     <>
-     
-     
-    {/* <Request/> */}
-      {/* <Navbar />
-      <Homee/> */}
-    
+    <AuthContextProvider>
       
     <div className="App">
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
@@ -58,10 +56,10 @@ function App() {
 
         
         <Route path="/data/professionals" element={<ProfCards/>}/>
-        <Route path="/resi/notices" element={<Notice/>}/>
+        <Route path="/resi/notices" element={<NoticeCards/>}/>
         <Route path="/resi/services" element={<Services/>}/>
         <Route path="/resi/form" element={<Form/>}/>
-
+        <Route path="/resi/notices/create" element={<CreateNotice/>}/>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
 
@@ -69,6 +67,7 @@ function App() {
       </Routes>
       
     </div>
+    </AuthContextProvider>
     </>
   );
 }

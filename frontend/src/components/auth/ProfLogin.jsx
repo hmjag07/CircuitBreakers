@@ -20,9 +20,12 @@ function ResiLogin() {
       setSeverity('warning');return;
     }
     try {
+      const token = localStorage.getitem('profToken');
       const response = await fetch('http://localhost:3001/api/prof/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+         },
         body: JSON.stringify({ email, password }),
       });
 
@@ -35,7 +38,9 @@ function ResiLogin() {
       }
 
       
-      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('profToken', data.token);
+      console.log('Token:', data.token)
+
       setError('Login Successful!'); setSeverity('success');
       navigate('/prof/home'); //to Home page
     } catch (error) {

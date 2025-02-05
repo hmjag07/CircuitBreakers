@@ -4,16 +4,21 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import Error from '../auth/Error';
+import ErrorComponent from '../auth/Error';
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
-export default function FormDialog() {
+
+export default function CreateNotice() {
+const navigate= useNavigate();
+
   const [open, setOpen] = useState(false);
   const [note, setNote] = useState('');
+
   const [error, setError] = useState('');
   const [severity, setSeverity] = useState('warning');
 
-const { user }= useContext(AuthContext);
+  const { user }= useContext(AuthContext);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -25,46 +30,53 @@ const { user }= useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!note) {
-      setError('Please fill in the field');
-      setSeverity('warning');
-      return;
-    }
-    if(!user){
-        setError(' You must ne logged in !')
-        setSeverity('warning');
-    }
 
-    try {
-      const response = await fetch("http://localhost:3000/api/resi/notices/create", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json',
-            Authorization: `Bearer ${user.token}`
-        },
-        body: JSON.stringify({ note,
-            author: user.name,
-        }),
-      });
+    let token = localStorage.getItem('resiToken');
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(`Notice was not created: ${data.error}`);
-        setSeverity('error');
+    if (!token) {
+        console.error("No token found. User might not be logged in.");
+        setError('no token'); setSeverity('warning');
         return;
-      }
-
-    //   localStorage.setItem('authToken', data.token);
-      setError('Notice created successfully!');
-      setSeverity('success');
-      setNote('');
-      handleClose();
-    } catch (error) {
-      setError("An error occurred. Please try again.");
-      setSeverity('error');
     }
-  };
+
+    // Ensure token is properly formatted
+    token = token.replace(/"/g, ''); // Remove quotes if they exist
+    console.log("Token being sent:", token); // Log token to check its size
+    const author = user?._id || user?.name; 
+
+    if (!author) {
+        console.error("No author found. User might not be logged in properly.");
+        setError('No author found'); 
+        setSeverity('warning');
+        return;
+    }
+    try {
+        const response = await fetch('http://localhost:3001/api/resi/notices/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+              note: note, author: author })
+        });
+
+        const data = await response.text(); // First, get raw text response
+
+        // console.log("Raw response data:", data);
+
+        if (!response.ok) {
+            throw new Error(data || "Failed to create notice.");
+        }
+
+        console.log("Notice created successfully:", JSON.parse(data));
+        setError('NOTICE POSTED !'); setSeverity('success'); 
+        navigate('/resi/notices');
+    } catch (error) {
+        console.error("Error in handleSubmit:", error.message);
+    }
+};
+
 
   return (
     <React.Fragment>
@@ -86,7 +98,7 @@ const { user }= useContext(AuthContext);
           },
         }}
       >
-        <Error error={error} severity={severity} setError={setError} />
+        <ErrorComponent error={error} severity={severity} setError={setError} />
         <DialogTitle>New Notice</DialogTitle>
         <DialogContent>
           <TextField
@@ -100,7 +112,7 @@ const { user }= useContext(AuthContext);
             fullWidth
             variant="standard"
             value={note}
-            onChange={(e) => setNote(e.target.value)}  // Update note state
+            onChange={(e) => setNote(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
@@ -111,5 +123,6 @@ const { user }= useContext(AuthContext);
     </React.Fragment>
   );
 }
+
 
 

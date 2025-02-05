@@ -4,13 +4,13 @@ const Schema = mongoose.Schema
 
 const notice = new Schema({
     author: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId, ref: 'User' ,
       required: true
     },
     date: {
-      type: Date,
+      type: String,
       required: true,
-      default: Date.now
+
     },
     time: {
       type: String,
@@ -35,3 +35,5 @@ try{
 }
 
 }
+
+module.exports = mongoose.model('Notice', notice)

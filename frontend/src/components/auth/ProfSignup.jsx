@@ -46,7 +46,7 @@ function ProfSignup() {
         return;
       }
 
-      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('profToken', data.token);
 
       if (response.ok)
         {

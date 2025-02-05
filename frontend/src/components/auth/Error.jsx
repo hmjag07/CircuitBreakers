@@ -3,7 +3,7 @@ import Alert from '@mui/material/Alert';
 
 const Error = ({setError, severity, error}) => {
     
-  return (
+  return error?(
     <div data-theme="mytheme">
           {error && 
           (<Alert   
@@ -17,7 +17,7 @@ const Error = ({setError, severity, error}) => {
           </Alert>)}
 
           </div>
-  );
+  ): null;
 };
 
 export default Error;
