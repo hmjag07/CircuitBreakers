@@ -45,7 +45,7 @@ function ResiSignup() {
         return;
       }
 
-      localStorage.setItem('authToken', data.token);
+      localStorage.setItem('resiToken', data.token);
 
       if (response.ok)
         {

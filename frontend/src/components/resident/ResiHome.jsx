@@ -11,7 +11,7 @@ const ResiHome=()=>{
 
 
 
-  const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem('resiToken');
   if (token){console.log(token);
   } else{console.log("no token !!");
   }

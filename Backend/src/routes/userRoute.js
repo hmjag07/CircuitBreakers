@@ -11,7 +11,7 @@ router.post('/prof/login', loginProf)
 router.post('/resi/login', loginUser)
 
 // notice
-router.post('/resi/notices', notices)
+router.get('/resi/notices', notices)
 router.post('/resi/notices/create', createNotice)
 
 

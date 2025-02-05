@@ -14,7 +14,9 @@ import Missing from './components/shared/Missing.jsx';
 
 
 import ProfCards from './components/resident/ProfCards.jsx';
-import Notice from './components/resident/Notice.jsx'
+import NoticeCards from './components/resident/Notice.jsx'
+import CreateNotice from './components/resident/CreateNotice.jsx'
+
 import ResiHome from './components/resident/ResiHome.jsx'
 import Book from './components/resident/Book.jsx'
 
@@ -53,7 +55,8 @@ function App() {
 
         
         <Route path="/data/professionals" element={<ProfCards/>}/>
-        <Route path="/resi/notices" element={<Notice/>}/>
+        <Route path="/resi/notices" element={<NoticeCards/>}/>
+        <Route path="/resi/notices/create" element={<CreateNotice/>}/>
 
         <Route path="*" element={<Missing/>} />
       </Routes>
