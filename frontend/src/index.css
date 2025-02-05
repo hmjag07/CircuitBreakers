@@ -334,7 +334,7 @@
 }
 
 .navbarP h1{
-    font-weight: 700;
+    font-weight: 500;
     white-space: nowrap; 
    font-size: 20px;
     text-overflow: ellipsis; 
@@ -416,4 +416,36 @@ ul li{
  box-shadow: 0 2px 5px rgb(0 0 0 0.2) ;
 }
 
+.services h1{
+  font-size: 30px;
+  font-weight: bolder;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  align-items: center;
+  text-align: center;
+}
+.services h2{
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  text-decoration: #3a3960;
+  
+}
+.footer {
+
+  width: 100%;
+  background-color: #3a3960; 
+  padding: 1.5rem 0;
+  color: white;
+  margin-top:415px;
+}
+
+.footercontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 

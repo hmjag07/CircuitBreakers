@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Home } from 'lucide-react';
 import Hello from './images/hello.jpg';
-
+import ProfLayout from './ProfLayout';
 const RequestPopup = () => {
   const styles = {
     popup: {
@@ -48,6 +48,7 @@ const RequestPopup = () => {
   };
 
   return (
+    <ProfLayout>
     <div className='home' style={{ 
             backgroundImage: `url(${Hello})`,
             backgroundSize: 'cover',
@@ -138,6 +139,7 @@ const RequestPopup = () => {
       </div>
     </div>
     </div>
+    </ProfLayout>
   );
 };
 

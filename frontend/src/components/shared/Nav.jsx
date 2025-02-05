@@ -19,7 +19,7 @@ const Nav = () => {
               <summary className="cursor-pointer">Appointments</summary>
               <ul className="dropdown-content menu bg-[#85A947] rounded-box p-2 mt-2 w-48 text-sm">
                 <li className="rounded-lg hover:bg-[#252446]">
-                  <Link to="/resi/book">Book Professional</Link>
+                  <Link to="/resi/services">Book Professional</Link>
                 </li>
                 <li className="rounded-lg hover:bg-[#252446]">
                   <Link to="/about">Manage Requests</Link>

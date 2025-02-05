@@ -84,6 +84,7 @@ const ProfCards = () => {
     <MenuItem value={"Plumber"}>Plumber</MenuItem>
     <MenuItem value={"Electrician"}>Electrician</MenuItem>
     <MenuItem value={"Carpenter"}>Carpenter</MenuItem>
+    <MenuItem value={"RO Engineer"}>Ro Engineer</MenuItem>
   </Select>
 </FormControl>
 
