@@ -1,21 +1,16 @@
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = process.env.SECRET; 
 
 const authMiddleware = (req, res, next) => {
-  const token = req.headers['authorization'];
+    const token = req.header('Authorization');
+    if (!token) return res.status(401).json({ message: 'Access Denied' });
 
-  if (!token) {
-    return res.status(403).json({ error: 'No token provided' });
-  }
-
-  jwt.verify(token, SECRET_KEY, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: 'Invalid token' });
+    try {
+        const verified = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = verified;
+        next();
+    } catch (error) {
+        res.status(400).json({ message: 'Invalid Token' });
     }
-    console.log('Decoded user:', decoded); 
-    req.user = decoded;  // Attach the user information from the token to the request object
-    next();
-  });
 };
 
 module.exports = authMiddleware;
