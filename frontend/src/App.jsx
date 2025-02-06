@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {  AuthContextProvider } from './context/AuthContext.js';
 
 import Appoint from './components/prof/Appoint.js';
-import About from './components/shared/About.js';
+import About from './components/shared/About.jsx';
 import Request from './components/prof/Request.jsx'
 import Editrequest from './components/prof/Editrequest.js';
 import Home from './components/shared/Home.jsx'
@@ -36,18 +36,16 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/resi/signup" element={<ResiSignup />} />
-        <Route path="/prof/signup" element={<ProfSignup/>}/>
-        <Route path="/prof/logout" element={<ProfLogout/>}/>
+        <Route exact path="/about" element={<About/>}/>
+        <Route exact path="/resi/signup" element={<ResiSignup />} />
+        <Route exact path="/prof/signup" element={<ProfSignup/>}/>
+        <Route exact path="/prof/logout" element={<ProfLogout/>}/>
+        <Route exact path="/resi/login" element={<ResiLogin/>}/>
+        <Route exact path="/prof/login" element={<ProfLogin/>}/>
+        <Route exact path="/resi/home" element={<ResiHome/>}/>
+        <Route exact path="/prof/home" element={<ProfHome/>}/>
 
-        <Route path="/resi/home" element={<ResiHome/>}/>
-        <Route path="/prof/home" element={<ProfHome/>}/>
         <Route path="/resi/book" element={<Book/>}/>
-
-        <Route path="/resi/login" element={<ResiLogin/>}/>
-        <Route path="/prof/login" element={<ProfLogin/>}/>
-
 
         <Route path="/prof/request" element={<Request />} />
         <Route path="/prof/appointments" element={<Appoint />} />
