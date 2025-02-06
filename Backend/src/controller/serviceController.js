@@ -1,4 +1,4 @@
-const Service = require('../models/Service');
+const Service = require('../models/service');
 const io = require('../sockets/serviceSocket');
 
 //  Create a new service (Admin only)
