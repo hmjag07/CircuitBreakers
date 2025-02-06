@@ -10,13 +10,13 @@ const errorHandler = (err, req, res, next) => {
         message = Object.values(err.errors).map(val => val.message).join(', ');
     }
 
-    // Duplicate Key Error (e.g., Unique field conflict)
+    // Duplicate Key Error (Unique field conflict etc etc)
     if (err.code === 11000) {
         statusCode = 400;
         message = 'Duplicate field value entered';
     }
 
-    // Cast Error (Invalid ObjectId, etc.)
+    // Cast Error (Invalid ObjectId etc etc)
     if (err.name === 'CastError') {
         statusCode = 400;
         message = `Invalid ${err.path}: ${err.value}`;
