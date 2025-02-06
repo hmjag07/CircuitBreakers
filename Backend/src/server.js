@@ -6,7 +6,7 @@ const requestRoutes = require('./routes/requestRoutes');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const { initializeRequestSocket } = require('./sockets/requestSocket');
+const { initializeRequestSocket } = require('./src/sockets/requestSocket');
 
 dotenv.config();
 connectDB();

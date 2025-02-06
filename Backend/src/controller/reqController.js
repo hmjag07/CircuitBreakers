@@ -1,4 +1,4 @@
-const Request = require('../models/Request');
+const Request = require('../models/req');
 const io = require('../sockets/requestSocket');
 
 //  Create a new service request (User)
