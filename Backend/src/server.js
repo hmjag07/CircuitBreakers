@@ -7,6 +7,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { initializeRequestSocket } = require('./src/sockets/requestSocket');
+const errorHandler = require('./middleware/errorHandler');
 
 dotenv.config();
 connectDB();
@@ -22,5 +23,7 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 
 app.use('/api/requests', requestRoutes);
 
+
+app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(` Server running on port ${PORT}`));
