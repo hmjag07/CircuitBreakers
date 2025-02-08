@@ -138,8 +138,14 @@ function ProfSignup() {
     <option value="Plumber">Plumber</option>
     <option value="Electrician">Electrician</option>
     <option value="Carpenter">Carpenter</option>
-    <option value="RO engineer">RO engineer</option>
-    
+    {/* <option value="RO engineer">RO engineer</option> */}
+    <option value="AC Repair and servicing">AC Repair and servicing</option>
+    <option value="Furniture Assembly">Furniture Assembly</option>
+    <option value="Painter">Painter</option>
+    <option value="Pest Control services">Pest Control services</option>
+    <option value="Inverter repair and services">Inverter repair and services</option>
+    <option value="Deep house cleaner">Deep house cleaner</option>
+    <option value="Native water purifier repaeir and services">Native water purifier repaeir and services</option>
   </select>
 </div>
 

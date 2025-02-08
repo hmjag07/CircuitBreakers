@@ -70,7 +70,7 @@ const NoticeCards = () => {
       >
         {notices.length > 0 ? (
           notices.map((notice) => (
-            <Card key={notice._id} sx={{ width: "100%", maxWidth: 1200, mb: 2 }}>
+            <Card key={notice._id} sx={{ width: "50%", maxWidth: 1200, mb: 2, ml: 70}}>
               <CardContent>
                 <Typography variant="h5" component="div" sx={{ fontWeight: "bold" }}>
                   {notice.author.name || "Unknown Author"} -{" "}

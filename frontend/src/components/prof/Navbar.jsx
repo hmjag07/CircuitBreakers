@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import { IoHome } from 'react-icons/io5';
 import ProfLayout from './ProfLayout';
-import Footer from '../resident/Footer';
+// import Footer from '../resident/Footer';
 const Navbar = () => {
   return (
     <ProfLayout>
@@ -71,7 +71,7 @@ marginRight: '20px',
      {/* <div className='navbarContainer'>
        <h1>WELCOME TO ALL AT HOME</h1>
      </div> */}
-     <Footer/>
+     {/* <Footer/> */}
     </div>
     </ProfLayout>
   );

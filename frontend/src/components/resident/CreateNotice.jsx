@@ -79,10 +79,14 @@ const navigate= useNavigate();
 
 
   return (
+
     <React.Fragment>
-      <button className="custom-button" variant="outlined" onClick={handleClickOpen}>
-        Add
-      </button>
+      <div className="edit">
+  <span className="editing">Add New Notice:</span>
+  <button className="resibutton" variant="outlined" onClick={handleClickOpen}>
+    Add
+  </button>
+</div>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -123,6 +127,4 @@ const navigate= useNavigate();
     </React.Fragment>
   );
 }
-
-
 

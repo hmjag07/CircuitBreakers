@@ -6,7 +6,7 @@ import {  AuthContextProvider } from './context/AuthContext.js';
 import Appoint from './components/prof/Appoint.js';
 import About from './components/shared/About.js';
 import Request from './components/prof/Request.jsx'
-// import Editrequest from './components/prof/Editrequest.jsx';
+import Editrequest from './components/prof/Editrequest.js';
 import Home from './components/shared/Home.jsx'
 
 import Missing from './components/shared/Missing.jsx';
@@ -52,7 +52,7 @@ function App() {
 
         <Route path="/prof/request" element={<Request />} />
         <Route path="/prof/appointments" element={<Appoint />} />
-        {/* <Route exact path="/prof/request/editrequest" element={<Editrequest/>} /> */}
+        <Route exact path="/prof/request/editrequest" element={<Editrequest/>} />
 
         
         <Route path="/data/professionals" element={<ProfCards/>}/>
