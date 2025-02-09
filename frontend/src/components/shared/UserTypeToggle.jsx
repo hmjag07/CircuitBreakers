@@ -11,25 +11,25 @@ function UserTypeToggle({role,setRole}) {
   };
 
   return (
-    <div className="flex items-center justify-center space-x-4">
+    <div className="flex items-center justify-center space-x-4 flex-row-reverse">
       {/* Resident / Professional Toggle */}
       <div className="form-control">
+      <label
+          htmlFor="userTypeToggle"
+          className="custom-button mb-9 !px-6 !py-2 !bg-[#ffb494] !text-[#3A3960] !border-[#3A3960] !rounded-lg cursor-pointer peer-checked:!bg-[#ffb494] peer-checked:!text-white peer-checked:!border-[#85A947]"
+        >
+          {check ? 'Resident' : 'Professional'}
+        </label>
         <input
           type="checkbox"
           id="userTypeToggle"
           className="hidden peer"
           checked={check} 
           onChange={handleChange} 
-        />
-        <label
-          htmlFor="userTypeToggle"
-          className="custom-button mb-9 !px-6 !py-2 !bg-[#E8ECD7] !text-[#3A3960] !border-[#3A3960] !rounded-lg cursor-pointer peer-checked:!bg-[#85A947] peer-checked:!text-white peer-checked:!border-[#85A947]"
-        >
-          {check ? 'Resident' : 'Professional'}
-        </label>
+        /> 
       </div>
 
-      <p>Selected user type: {check ? 'Resident' : 'Professional'}</p>
+      <p className='px-4 !font-semibold'>Join us as a  </p>
     </div>
   );
 }

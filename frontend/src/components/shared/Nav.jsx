@@ -2,9 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
+import { useEffect } from 'react';
 const Nav = () => {
   const { user } = useContext(AuthContext);
   console.log("in nav", user);
+  useEffect(() => {
+    if (Nav.current) {
+      console.log("Navbar Height:", Nav.current.offsetHeight);
+    }
+  }, []);
   return (
     <div className="navbar !bg-[#3A3960] !shadow-md !fixed !top-0 !left-0 !right-0 !z-50">
       <div className="flex-1">

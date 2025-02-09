@@ -34,36 +34,26 @@ const [role, setRole]= useState('resi');
     <h3 className='text-5xl font-extrabold text-[#3A3960] font'>ALL AT HOME</h3>
 
 {/* description and buttons */}
-      <p style={{ margin: '20px 0 40px 0' }}>
-        All At Home is your one-stop solution for managing household needs effortlessly. From booking skilled professionals like electricians, plumbers, and more, to accessing convenient community features like an online notice board, we make daily living simpler and more organized. With All At Home, you can save time, streamline tasks, and focus on what truly matters.</p>
-
-      <p className="text-centre text-lg text-[#3A3960] font-semibold font-sans ">
-      <Link className='hover:text-[#615dd3]'to="/about">
-        Know More about us </Link><br />
-        Join us as a resident or a working proffesional !
-        (to be edited)
-      </p>
-      <div className="flex-grow flex justify-evenly">
-        
+      <p className="mt-2 mb-2 !font-bold">
+        All At Home is your one-stop solution for managing household needs effortlessly. From booking skilled professionals like electricians, plumbers, and more, to accessing convenient community features like an online notice board, we make daily living simpler and more organized. With All At Home, you can save time, streamline tasks, and focus on what truly matters.<br/><br/>
+        <Link className='!text-2xl text-[#3A3960] font-semibold font-sans hover:text-[#a82633]'to="/about">
+        Want to Know more?
+      </Link></p>
+      <div className="">
       <UserTypeToggle 
         role={role}
         setRole={setRole}
-        />
-{/* </div>
-<div className="flex-grow flex justify-evenly"> */}
+        /></div><br />
+<div className="flex-grow flex justify-center space-x-4">
+  <Link to={`/${role}/login`}>
+    <button className="custom-button">Login</button>
+  </Link>
 
-        <Link to={`/${role}/login`}>
-          <button className='custom-button'>
-            Login 
-          </button>
-        </Link>
+  <Link to={`/${role}/signup`}>
+    <button className="custom-button">Signup</button>
+  </Link>
+</div>
 
-         <Link to={`/${role}/signup`}>
-        <button className="custom-button">
-            Signup
-        </button> 
-        </Link>
-      </div>
 
     </div>
   </div>

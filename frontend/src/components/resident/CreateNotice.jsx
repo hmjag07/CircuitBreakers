@@ -61,7 +61,7 @@ const navigate= useNavigate();
               note: note, author: author })
         });
 
-        const data = await response.text(); // First, get raw text response
+        const data = await response.text(); 
 
         // console.log("Raw response data:", data);
 
@@ -80,9 +80,19 @@ const navigate= useNavigate();
 
   return (
     <React.Fragment>
-      <button className="custom-button" variant="outlined" onClick={handleClickOpen}>
-        Add
-      </button>
+      <div className="relative flex flex-col items-center">
+  
+      <button 
+  className="custom-button !w-32 fixed top-24 left-1/2 transform -translate-x-1/2 z-50"
+  variant="outlined" 
+  onClick={handleClickOpen}
+>
+  Add a Notice
+</button>
+</div>
+
+
+
       <Dialog
         open={open}
         onClose={handleClose}
