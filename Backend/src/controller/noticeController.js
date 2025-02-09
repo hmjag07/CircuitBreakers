@@ -1,4 +1,4 @@
-const Resi = require('../models/userModel')
+
 const Notice = require('../models/noticeModel');
 const jwt = require('jsonwebtoken');
 
@@ -14,8 +14,7 @@ console.log("Incoming request body:", req.body);
     // extract token from "Bearer <token>"
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, process.env.SECRET);
-console.log("decoded", decodedToken);
-
+    console.log("decoded", decodedToken);
     // use decoded token data for author: prefer _id, otherwise use name?
     const author = decodedToken._id || decodedToken.name;
 

@@ -1,21 +1,28 @@
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = process.env.SECRET; 
+const dotenv = require('dotenv');
+const User = require('../models/userModel');
 
-const authMiddleware = (req, res, next) => {
-  const token = req.headers['authorization'];
+dotenv.config();
 
-  if (!token) {
-    return res.status(403).json({ error: 'No token provided' });
-  }
 
-  jwt.verify(token, SECRET_KEY, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: 'Invalid token' });
+// Middleware to authenticate JWT tokens
+ 
+const authMiddleware = async (req, res, next) => {
+    try {
+        const token = req.header('Authorization');
+
+        if (!token) {
+            return res.status(401).json({ message: 'Access denied. No token provided.' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = await User.findById(decoded.id).select('-password'); // Exclude password from user object
+
+        next();
+    } catch (error) {
+        res.status(401).json({ message: 'Invalid or expired token' });
     }
-    console.log('Decoded user:', decoded); 
-    req.user = decoded;  // Attach the user information from the token to the request object
-    next();
-  });
 };
 
 module.exports = authMiddleware;
+

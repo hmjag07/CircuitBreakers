@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import {  AuthContextProvider } from './context/AuthContext.js';
 
 import Appoint from './components/prof/Appoint.js';
-import About from './components/shared/About.js';
+import About from './components/shared/About.jsx';
 import Request from './components/prof/Request.jsx'
 import Editrequest from './components/prof/Editrequest.js';
 import Home from './components/shared/Home.jsx'
