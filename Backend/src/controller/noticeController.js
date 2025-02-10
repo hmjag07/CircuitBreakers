@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const createNotice = async (req, res) => {
   try {
-    const { note } = req.body;
+    const { title,note, expiresAt } = req.body;
 console.log("Incoming request body:", req.body);
 
     if (!req.headers.authorization) {
@@ -27,7 +27,9 @@ console.log("Incoming request body:", req.body);
         hour12: true,
         timeZone: 'Asia/Kolkata'
       }),
-      note: note
+      title:title,
+      note: note,
+      expiresAt
     });
     
 
@@ -41,12 +43,28 @@ console.log("Incoming request body:", req.body);
 
 const notices = async (req, res) => {
   try {
-    const allNotices = await Notice.find().populate('author', 'name');
-    console.log("Fetched notices:", allNotices);
+    const now= new Date();
+    const allNotices = await Notice.find({ expiresAt: { $gte: now } }).populate('author', 'name').sort({ _id: -1 });
+
+    // console.log("Fetched notices:", allNotices);
     res.json(allNotices);
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch notices" });
   }
 };
+
+// Function to delete expired notices
+const deleteExpiredNotices = async () => {
+    try {
+        const now = new Date();
+        const result = await Notice.deleteMany({ expiresAt: { $lt: now } });
+        console.log(`Deleted ${result.deletedCount} expired notices.`);
+    } catch (error) {
+        console.error("Error deleting expired notices:", error);
+    }
+};
+
+// Run cleanup every hour
+setInterval(deleteExpiredNotices, 60 * 60 * 1000);
 
 module.exports = { notices, createNotice };
