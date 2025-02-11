@@ -1,6 +1,6 @@
 
 const Notice = require('../models/noticeModel');
-const { sendRealTimeNotification } = require('../sockets/socketHandler');
+const { sendRealTimeNotification } = require('../sockets/noticeSocket');
 
 
  //Create a new notice (Admin only)
