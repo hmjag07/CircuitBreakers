@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { initializeRequestSocket } = require('./src/sockets/requestSocket');
 const errorHandler = require('./middleware/errorHandler');
+const adminRoutes = require('./routes/adminRoute')
 
 dotenv.config();
 connectDB();
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+app.use('api/admin', adminRoutes);
 
 app.use('/api/requests', requestRoutes);
 
