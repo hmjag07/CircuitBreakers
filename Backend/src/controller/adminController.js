@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 
 
-//Grant admin access to a user (Only existing admins can do this which will be some employee handling the backend)
+//Grant admin access to a user (Only existing admins can do this which will be some employee handling the backend, at this moment just uss)
  
 exports.makeAdmin = async (req, res) => {
     try {
