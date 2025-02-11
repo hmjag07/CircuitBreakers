@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import { AuthContext } from "../../context/AuthContext";
 import ErrorComponent from '../auth/Error';
 
-const socket = io('http://localhost:5000'); 
+const socket = io('http://localhost:3000'); 
 
 const NoticeComponent = ({ userId }) => {
   useEffect(() => {
