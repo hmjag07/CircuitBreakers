@@ -62,44 +62,4 @@ exports.updateUserProfile = async (req, res) => {
 };
 
 
- //Get user bookings (User Dashboard)
-
-exports.getUserBookings = async (req, res) => {
-  try {
-      const bookings = await Booking.find({ user: req.user.id }).populate('service');
-      res.json(bookings);
-  } catch (error) {
-      res.status(500).json({ message: 'Server error', error: error.message });
-  }
-};
-
-
-//Admin: Get all users
-
-exports.getAllUsers = async (req, res) => {
-  try {
-      const users = await User.find().select('-password');
-      res.json(users);
-  } catch (error) {
-      res.status(500).json({ message: 'Server error', error: error.message });
-  }
-};
-
-
-//Delete a user
-
-exports.deleteUser = async (req, res) => {
-  try {
-      const user = await User.findById(req.params.id);
-      if (!user) {
-          return res.status(404).json({ message: 'User not found' });
-      }
-
-      await user.deleteOne();
-      res.json({ message: 'User deleted successfully' });
-  } catch (error) {
-      res.status(500).json({ message: 'Server error', error: error.message });
-  }
-};
-
 module.exports = { signupUser, loginUser };
