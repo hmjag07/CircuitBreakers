@@ -1,41 +1,24 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema
-
-const notice = new Schema({
-
-    author: {
-      type: mongoose.Schema.Types.ObjectId, ref: 'User' ,
-      required: true
+const noticeSchema = new mongoose.Schema({
+    title: { 
+      type: String, 
+      required: true 
     },
-    date: {
-      type: String,
-      required: true,
+    message: { 
+      type: String, 
+      required: true 
     },
-    time: {
-      type: String,
-      required: true
-    },
-    title:{
-      type: String,
-      required: true,
-    },
-    note: {
-      type: String,
-      required: true
-    },
-    expiresAt: { type: Date, default: null } 
-  });
+    user: { 
+      type: mongoose.Schema.Types.ObjectId, ref: 'User',
+       required: true 
+      }, // User receiving the notice
+    type: { 
+      type: String, enum: ['booking', 'request', 'general'], 
+      default: 'general' }, // Notice type
+    createdAt: { 
+      type: Date, default: Date.now, 
+      expires: '7d' } // Auto-delete after 7 days
+});
 
-
-notice.statics.new = async function(author,date,time,title,note){
-try{
-    const notice = await this.create({ author, date, time, title, note})
-    return notice;
-}catch(err){
-    throw new Error(err.message,': there was an issue creating this notice, please try again')
-}
-
-}
-
-module.exports = mongoose.model('Notice', notice)
+module.exports = mongoose.model('Notice', noticeSchema);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
+import io from 'Socket.io-client';
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Error from '../auth/Error'
@@ -8,6 +9,23 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { AuthContext } from "../../context/AuthContext";
 import ErrorComponent from '../auth/Error';
+
+const socket = io('http://localhost:5000'); 
+
+const NoticeComponent = ({ userId }) => {
+  useEffect(() => {
+      socket.emit('joinRoom', userId);
+
+      socket.on('newNotice', (data) => {
+          alert(`New Notice: ${data.title} - ${data.message}`);
+      });
+
+      return () => socket.off('newNotice');
+  }, [userId]);
+
+  return <div>Waiting for Notices...</div>;
+};
+
 
 const NoticeCards = () => {
   const [error, setError] = useState('');

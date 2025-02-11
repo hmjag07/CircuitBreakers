@@ -27,6 +27,7 @@
     "@mui/icons-material": "^6.4.1",
     "@mui/material": "^6.3.1",
     "bcrypt": "^5.1.1",
+    "cron": "^3.5.0",
     "daisyui": "^4.12.23",
     "dotenv": "^16.4.7",
     "express-rate-limit": "^7.5.0",
